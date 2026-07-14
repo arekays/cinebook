@@ -1,5 +1,3 @@
-name: Build and Deploy CineBook to EKS
- 
 on:
   push:
     branches: [main]
