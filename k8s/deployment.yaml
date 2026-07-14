@@ -1,0 +1,31 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: cinebook
+spec:
+  replicas: 2
+  selector:
+    matchLabels:
+      app: cinebook
+  template:
+    metadata:
+      labels:
+        app: cinebook
+    spec:
+      containers:
+      - name: cinebook
+        image: PLACEHOLDER
+        ports:
+        - containerPort: 80
+---
+apiVersion: v1
+kind: Service
+metadata:
+  name: cinebook-service
+spec:
+  type: LoadBalancer
+  selector:
+    app: cinebook
+  ports:
+  - port: 80
+    targetPort: 80
